@@ -14,6 +14,7 @@
             Toggle Details
           </button>
         </div>
+        
 
         <div *ngIf="goal.showDescription">
           <app-goal-detail
@@ -24,6 +25,10 @@
         </div>
       </div>
     </div>
+    <p *ngIf="goals.length > 5">Your goals are too many</p>
+
+    <div class="col-md-6">
+      <app-goal-form (addGoal)="addNewGoal($event)"></app-goal-form>
+ </div>
   </div>
-  <p *ngIf="goals.length > 5">Your goals are too many</p>
-</div>
+
