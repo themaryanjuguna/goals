@@ -3,20 +3,18 @@
   <hr />
 
   <div class="row">
-    <div class="column-md-6">
+    <div class="col-md-6">
       <div *ngFor="let goal of goals; let i = index">
         <div>
-          <h4 id="{{ i }}" appStrikethrough>
+          <p class="fs-6" id="{{ i }}" appStrikethrough>
             {{ goal.id }} {{ goal.name | uppercase }} due on
             {{ goal.completeDate | date | uppercase }}
-          </h4>
-          <button (click)="toggleDetails(i)" class="btn btn-primary">
+          </p>
+          <button (click)="toggleDetails(i)" class="btn btn-primary btn-sm mb-2">
             Toggle Details
           </button>
         </div>
-        
-
-        <div *ngIf="goal.showDescription">
+      <div *ngIf="goal.showDescription">
           <app-goal-detail
             *ngIf="goal.showDescription"
             [goal]="goal"
@@ -25,10 +23,10 @@
         </div>
       </div>
     </div>
-    <p *ngIf="goals.length > 5">Your goals are too many</p>
-
     <div class="col-md-6">
       <app-goal-form (addGoal)="addNewGoal($event)"></app-goal-form>
  </div>
-  </div>
+ <p class="fs-6 mt-3" *ngIf="goals.length > 5">Your goals are too many</p>
+</div>
+
 
